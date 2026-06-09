@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-blue: #00f0ff;
+  --color-neon-purple: #bd00ff;
+  --color-neon-red: #ff0055;
+  --color-neon-green: #00ff66;
+  --color-neon-silver: #e2e8f0;
+  --color-dark-bg: #080808;
+  --color-dark-panel: #121212;
+  --color-dark-border: #1e1e1e;
+}
+
+/* Custom Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #080808;
+  color: #f3f4f6;
+  font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Tech Brutalist Borders & Glows */
+.brutalist-border-cyan {
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.brutalist-border-purple {
+  border: 2px solid #bd00ff;
+  box-shadow: 0 0 8px rgba(189, 0, 255, 0.3);
+}
+
+.brutalist-border-white {
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.8);
+}
+
+.glow-text-purple {
+  text-shadow: 0 0 5px rgba(189, 0, 255, 0.8);
+}
+
+.glow-text-red {
+  text-shadow: 0 0 5px rgba(255, 0, 85, 0.8);
+}
+
+.glow-text-teal {
+  text-shadow: 0 0 5px rgba(0, 255, 204, 0.8);
+}
+
+/* CRT Screen FX */
+.crt-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 85, 0.75),
+                -0.05em -0.025em 0 rgba(0, 240, 255, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 85, 0.75),
+                -0.05em -0.025em 0 rgba(0, 240, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 85, 0.75),
+                 0.025em 0.025em 0 rgba(0, 240, 255, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 85, 0.75),
+                 0.025em 0.025em 0 rgba(0, 240, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 85, 0.75),
+                -0.05em 0.05em 0 rgba(0, 240, 255, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 85, 0.75),
+                -0.05em 0.05em 0 rgba(0, 240, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 85, 0.75),
+                 -0.025em -0.025em 0 rgba(0, 240, 255, 0.75);
+  }
+}
+
+.glitch-text {
+  animation: glitch 1s infinite;
+}
+
+/* Custom Scrollbar for brutalist log panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1e1e1e;
+  border: 1px solid #00f0ff;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Custom Segmented HP Meter */
+.hp-segment {
+  height: 100%;
+  flex: 1;
+  background: #1a1a1a;
+  border-right: 1px solid #000;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hp-segment.player-active {
+  background: #00f0ff;
+  box-shadow: 0 0 4px #00f0ff;
+}
+
+.hp-segment.opponent-active {
+  background: #ff0055;
+  box-shadow: 0 0 4px #ff0055;
+}
+
+/* Three.js viewport styling */
+#canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Lotus / Overgrowth CSS Glows & Root Outlines */
+.glow-text-pink {
+  text-shadow: 0 0 5px rgba(255, 0, 127, 0.85);
+  color: #ff007f !important;
+}
+
+.overgrowth-active {
+  border-color: #ff007f !important;
+  box-shadow: 0 0 10px #ff007f, inset 0 0 8px #ff007f !important;
+  animation: overgrowth-pulse 1.5s infinite ease-in-out;
+  position: relative;
+}
+
+.overgrowth-active::before {
+  content: "OVERGROWN";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 7px;
+  font-weight: bold;
+  background: #ff007f;
+  color: #000;
+  padding: 0px 4px;
+  border-radius: 1px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 5px #ff007f;
+  z-index: 10;
+}
+
+@keyframes overgrowth-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    box-shadow: 0 0 8px #ff007f, inset 0 0 6px #ff007f !important;
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 16px #ff007f, inset 0 0 12px #ff007f !important;
+  }
+}
+
+.menu-title {
+  font-family: 'Syncopate', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: inline-block;
+  
+  /* The Y2K Mechanics */
+  font-style: italic;                  /* Forces the aggressive forward lean */
+  letter-spacing: -0.05em;             /* Tightly packs the letters together so they nearly touch */
+  transform: scaleY(0.85) scaleX(1.3); /* Squashes the height vertically, stretches the width horizontally */
+  
+  /* The Color Profile */
+  color: #FFFFFF;                      /* Pure bright white fill */
+  -webkit-text-stroke: 2px #3b82f6;    /* Sharp, thin neon blue outer stroke line */
+  
+  /* Texture Effect */
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.6); /* Subtle blue digital bloom/glow */
+}
+
+.menu-title.victory {
+  -webkit-text-stroke: 2px #00ff66; /* neon-green */
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.6);
+}
+
+.menu-title.defeat {
+  -webkit-text-stroke: 2px #ff0055; /* neon-red */
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.6);
+}
+
+.menu-title.draw {
+  -webkit-text-stroke: 2px #eab308; /* gold */
+  text-shadow: 0 0 10px rgba(234, 179, 8, 0.6);
+}
+
+#pregame-screen {
+  background-image: linear-gradient(rgba(8, 8, 8, 0.65), rgba(8, 8, 8, 0.75)), url('/bg_menu.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+

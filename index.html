@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>METALHEART_</title>
+    
+    <!-- Editorial Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syncopate:wght@700;900&display=swap" rel="stylesheet">
+    
+
+  </head>
+  <body class="bg-dark-bg text-gray-200 select-none overflow-hidden h-screen w-screen font-mono">
+    
+    <!-- PRE-GAME LOADOUT SELECTOR SCREEN OVERLAY (BRUTALIST MENU) -->
+    <div id="pregame-screen" class="absolute inset-0 bg-dark-bg z-60 flex flex-col justify-start items-center p-6 text-center overflow-y-auto">
+      <div class="max-w-2xl w-full bg-dark-panel/95 border-4 border-white p-8 brutalist-border-white shadow-[8px_8px_0px_#ffffff] text-left mt-8 mb-8">
+        
+        <div class="text-center mb-1">
+          <h1 class="menu-title text-4xl">
+            METALHEART_
+          </h1>
+        </div>
+        <p class="text-[10px] text-zinc-500 uppercase tracking-widest mb-6 text-center">
+          1v1 Spell-casting arena
+        </p>
+
+        <div class="flex flex-col gap-6">
+          
+          <!-- LOADOUT SELECTOR -->
+          <div class="flex flex-col justify-between">
+            <div>
+              <div class="text-xs leading-relaxed text-zinc-400 mb-6 bg-zinc-950/80 p-4 border border-zinc-800">
+                <span class="text-white font-bold block uppercase mb-1">THE GRIMOIRE SELECTOR:</span>
+                Choose exactly <span class="text-white font-bold">4 elements</span> to serve as your match loadout. Once locked, alphanumeric keys <span class="text-neon-blue font-bold">1</span>, <span class="text-neon-blue font-bold">2</span>, <span class="text-neon-blue font-bold">3</span>, and <span class="text-neon-blue font-bold">4</span> will dynamically bind to these selections. Your loadout becomes completely <span class="text-red-500 font-bold">IMMUTABLE</span> during the combat trial.
+              </div>
+              
+              <div class="grid grid-cols-3 gap-3 mb-6" id="pregame-elements-grid">
+                <!-- 9 Elements to toggle -->
+                <button data-element="PULSE" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">PULSE</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Light / 2 DMG</span>
+                </button>
+                <button data-element="CHROME" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">CHROME</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Phys / 2 DMG</span>
+                </button>
+                <button data-element="MIRROR" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">MIRROR</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Phys / 1 DMG</span>
+                </button>
+                <button data-element="BLOOD" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">BLOOD</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Phys / Lifesteal</span>
+                </button>
+                <button data-element="DECAY" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">DECAY</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Phys / Corrosion</span>
+                </button>
+                <button data-element="CLOUD" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">CLOUD</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Gas / Smokescreen</span>
+                </button>
+                <button data-element="VOID" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">VOID</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Kinetic Intercept</span>
+                </button>
+                <button data-element="LOTUS" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">LOTUS</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Bio-Utility / 1 DMG</span>
+                </button>
+                <button data-element="ECHO" class="pregame-btn p-3 border-2 border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 text-center rounded-sm transition-all flex flex-col items-center">
+                  <span class="text-sm font-bold text-white font-mono">ECHO</span>
+                  <span class="text-[9px] text-zinc-500 mt-1 uppercase">Sound / 2 DMG</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center border-t border-zinc-800 pt-4 mt-2">
+              <div class="text-left font-mono text-[10px] text-zinc-500 uppercase">
+                SELECTED: <span id="pregame-selected-count" class="text-white font-bold">0 / 4</span>
+              </div>
+              <button id="pregame-lock-btn" disabled class="px-6 py-2 bg-zinc-800 border border-zinc-600 text-zinc-500 font-bold uppercase cursor-not-allowed hover:bg-zinc-700 hover:text-white transition-all disabled:opacity-50">
+                LOCK LOADOUT & INITIATE MATCH
+              </button>
+            </div>
+          </div>
+
+          <!-- DROPDOWN SYSTEM MANUAL -->
+          <div class="flex flex-col w-full border-t border-zinc-800 pt-4 mt-2">
+            <button id="manual-toggle-btn" class="w-full py-2 bg-zinc-900/90 hover:bg-zinc-800 text-white font-mono text-[10px] font-bold border border-zinc-700 active:bg-zinc-950 uppercase tracking-wider brutalist-border-white shadow-[2px_2px_0px_#ffffff] cursor-pointer transition-all">
+              Show Combat Manual [▼]
+            </button>
+            
+            <div id="manual-dropdown-panel" class="hidden flex-col bg-zinc-950/95 border border-zinc-800 p-5 mt-3 font-mono max-h-[320px] overflow-y-auto custom-scrollbar">
+              <div class="text-neon-purple font-bold text-[12px] uppercase mb-3 border-b border-neon-purple pb-1 tracking-widest">
+                SYSTEM MANUAL & COMBAT CODEX
+              </div>
+              
+              <div class="text-[10px] text-gray-400 leading-relaxed space-y-4">
+                <div>
+                  <span class="text-white font-bold block uppercase mb-1 text-[11px]">Grimoire Constants:</span>
+                  - <span class="text-neon-blue font-bold">Pulse (Light)</span>: 2 DMG. Blocked by Chrome. If striking a target affected by gas, triggers **Lightning Storm** (4 DMG, 0 backlash DMG to caster). 3x Pulse = Hyper-Pulse Beam (3 Light DMG).<br>
+                  - <span class="text-slate-300 font-bold">Chrome (Phys)</span>: 2 DMG. 3x Chrome = +1 permanent armor shield.<br>
+                  - <span class="text-neon-blue font-bold">Mirror (Phys)</span>: 1 DMG.<br>
+                  - <span class="text-neon-red font-bold">Blood (Phys)</span>: 1 DMG + 100% Lifesteal. 3x Blood (Self) = restores 3 HP.<br>
+                  - <span class="text-neon-green font-bold">Decay (Phys)</span>: 1 DMG + Corrosion (+1 DMG next turn). Sharp low-poly pyramid model.<br>
+                  - <span class="text-zinc-400 font-bold">Cloud (Gas)</span>: 0 DMG. Projectile (Fog Shard) inflicts **Fog** status for 2 turns. Self-cast raw Cloud purges active Gas DOTs + floods right screen with dense smokescreen vapor for 2 turns.<br>
+                  - <span class="text-purple-400 font-bold">Void (Kinetic)</span>: 0 DMG. Projectile deletes incoming projectile. Self-cast (Void Shelter) immediately purges all active status effects and grants invulnerability for that turn. ALL Void actions (Projectile, Beyond Void, and Shelter) share a universal 3-turn cooldown.
+                </div>
+                <div class="border-t border-zinc-800 pt-2">
+                  <span class="text-white font-bold block uppercase mb-1 text-[11px]">The Lotus Sub-System (Bio-Digital):</span>
+                  - <span class="text-pink-400 font-bold">Lotus (Bio-Utility)</span>: Projectile deals 1 DMG and inflicts **Overgrowth** for 2 turns, which physically disables the opponent's Key 1 and Key 4 HUD slots. Self-Cast (Blossom Focus) restores 1 HP instantly.<br>
+                  - **Lotus Fusions:**<br>
+                    &nbsp;&nbsp;• *Spiked Iron Rose (Lotus + Chrome)*: 3 Phys DMG. Shatters active Chrome/Mirror Barrier and deals 1 piercing DMG.<br>
+                    &nbsp;&nbsp;• *Solar Bloom (Lotus + Pulse)*: 2 Light DMG. Bypasses Chrome Barriers (reflected by Mirror).<br>
+                    &nbsp;&nbsp;• *Overtime Blossom (Lotus + Blood - Self)*: Regenerate +1 HP at the start of every subsequent round (takes 1 round to germinate).<br>
+                    &nbsp;&nbsp;• *Spore Grid (Lotus + Cloud)*: 2-turn field trap. Victim's physical spells detonate the trap, dealing 2 self-inflicted DMG and neutralizing their turn.
+                </div>
+                
+                <div class="border-t border-zinc-800 pt-2">
+                  <span class="text-white font-bold block uppercase mb-1 text-[11px]">Cloud & Gas Fusions (Atmospheric):</span>
+                  &nbsp;&nbsp;• *Decay Gas (Cloud + Decay)*: Deals 2 DMG per turn for 2 turns (4 DMG total). Gas anomaly.<br>
+                  &nbsp;&nbsp;• *Lightning Storm (Pulse hitting Gas)*: Strikes a target affected by gas (standard gas, decay gas, or healing mist), triggering a Lightning Storm dealing 4 DMG to opponent (no self-backlash).<br>
+                  &nbsp;&nbsp;• *Healing Mist (Cloud + Blood - Self)*: Soothing crimson mist restoring +2 HP per turn for 2 turns (4 HP total).
+                </div>
+
+                <div class="border-t border-zinc-800 pt-2">
+                  <span class="text-white font-bold block uppercase mb-1 text-[11px]">The Echo Sub-System (Sound):</span>
+                  - <span class="text-teal-400 font-bold">Echo (Sound)</span>: Projectile (Echo Wave) deals 2 DMG. Bypasses standard shields. Shatters Mirror for 1 piercing DMG. Deflects on Chrome Barriers (3 Reflected DMG to caster). Self-Cast (Echo Cleanse) purges negative cloud/gas statuses. **Note: Casting Echo in any combination engages a 1-turn universal cooldown.**<br>
+                  - **Echo Fusions:**<br>
+                    &nbsp;&nbsp;• *Delayed Strike (Echo + Pulse)*: Deals 0 DMG Turn 1, applies 1-turn status with Echo wireframe cone; detonates Turn 2 for 4 DMG (6 DMG if Chrome Barrier active; 0 DMG if in Smokescreen, Fog, or Void Shelter). Shatters Mirror Barriers on impact and is neutralized without dealing damage.<br>
+                    &nbsp;&nbsp;• *Piercing Blood (Blood + Echo)*: Blocks target from receiving/absorbing health chunks from any source for 2 turns.<br>
+                    &nbsp;&nbsp;• *Sonic Anvil (Chrome + Echo - Self)*: 1-turn 1 HP shield. If struck by physical/pulse, deals 2 HP backlash to attacker (bypasses barriers).<br>
+                    &nbsp;&nbsp;• *Sonic Railgun (Chrome + Echo)*: Deals 2 Kinetic DMG. Punches through clouds. Shatters mirror for 4 DMG. Recoils/stalls caster for 1 turn on Chrome Barrier (0 DMG to defender).<br>
+                    &nbsp;&nbsp;• *Thunderclap Cleanse (Echo + Cloud)*: Dissipates cloud fields on impact (deals 0 DMG).<br>
+                    &nbsp;&nbsp;• *Harmonic Cleanse (Echo + Lotus - Self)*: 1-turn self-cast immunizing player from DOT/poison ticks.
+                </div>
+
+                <div class="border-t border-zinc-800 pt-2">
+                  <span class="text-white font-bold block uppercase mb-1 text-[11px]">Barriers & Counters:</span>
+                  - Chrome Barrier blocks Physical and Pulse Bolt, bypassed by other Light/Gas.<br>
+                  - Mirror Barrier blocks Light, reflects 100% back. Shattered by Physical/Gas.<br>
+                  - Gas/Sound fusions bypass all barriers!
+                </div>
+                <div class="border-t border-zinc-800 pt-2">
+                  <span class="text-white font-bold block uppercase mb-1 text-[11px]">Incompatibility Rules:</span>
+                  Illegal inputs block and horizontal-jitter elements. Illegal pairs:<br>
+                  - Chrome + Mirror | Blood + Decay | Chrome + Cloud | Mirror + Cloud | Cloud + Pulse | Void + any other element (except Pulse) | Lotus + Void | Lotus + Decay | Echo + Void | Echo + Decay | Echo + Mirror
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- GAME OVER SCREEN OVERLAY (BRUTALIST TECH DESIGN) -->
+    <div id="gameover-screen" class="absolute inset-0 bg-zinc-950/70 z-60 hidden flex-col justify-center items-center p-6 text-center pointer-events-none">
+      <div class="max-w-md bg-dark-panel border-4 border-white p-8 brutalist-border-white shadow-[8px_8px_0px_#ffffff] pointer-events-auto">
+        <div class="text-center mb-2">
+          <h1 id="gameover-title" class="menu-title text-4xl">
+            DEFEAT_
+          </h1>
+        </div>
+        <p id="gameover-subtitle" class="text-[10px] text-zinc-500 uppercase tracking-widest mb-6">
+          METALHEART MATRIX SHATTERED
+        </p>
+        
+        <div class="text-left text-xs leading-relaxed text-zinc-400 mb-6 bg-zinc-950/80 p-4 border border-zinc-800">
+          <span class="text-white font-bold block uppercase mb-1">TRIAL RESULTS:</span>
+          <div id="gameover-details" class="space-y-1 font-mono text-[11px]">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <button id="gameover-retry-btn" class="w-full px-6 py-3 bg-white text-zinc-950 font-bold uppercase hover:bg-zinc-200 cursor-pointer transition-all border border-white">
+            RETURN TO MENU
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WebGL Three.js Scene Viewport -->
+    <div id="canvas-container" class="absolute inset-0 w-full h-full z-0"></div>
+
+    <!-- BLIND OVERLAY (Solid White screen-flash triggered by 3x Pulse stack) -->
+    <div id="blind-overlay" class="absolute inset-0 bg-white opacity-0 pointer-events-none transition-opacity duration-300 z-45"></div>
+
+    <!-- SMOKESCREEN HAZE OVERLAY (Soft emerald-gray haze screen overlay) -->
+    <div id="smokescreen-overlay" class="absolute inset-0 bg-emerald-950/20 backdrop-blur-[1px] opacity-0 pointer-events-none transition-opacity duration-500 z-45"></div>
+
+    <!-- OVERGROWTH OVERLAY (Pink wireframe root effect around borders) -->
+    <div id="overgrowth-overlay" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-300 z-45 flex items-center justify-center">
+      <div class="absolute inset-0 border-[16px] border-pink-500/30 mix-blend-screen" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(236, 72, 153, 0.1) 10px, rgba(236, 72, 153, 0.1) 20px);"></div>
+      <div class="absolute inset-4 border-2 border-pink-500/50 shadow-[0_0_20px_rgba(236,72,153,0.5)_inset]"></div>
+    </div>
+
+    <!-- CRT Visual Scanline Overlay -->
+    <div class="crt-overlay pointer-events-none fixed inset-0 z-50"></div>
+
+    <!-- Technical HUD Overlay -->
+    <div id="gameplay-hud" class="absolute inset-0 z-20 flex flex-col justify-between p-4 pointer-events-none opacity-0 transition-opacity duration-500">
+      
+      <!-- Top Header & Health Bars -->
+      <div class="flex justify-between items-start w-full">
+        <!-- Top Left Quick Utility (Mute toggle) -->
+        <div class="pointer-events-auto">
+          <button id="toggle-mute-btn" class="px-2.5 py-1 bg-zinc-900/90 hover:bg-zinc-850 text-white font-mono text-[9px] border border-zinc-700 active:bg-zinc-950 uppercase tracking-wider brutalist-border-white shadow-[2px_2px_0px_#ffffff]">
+            Mute: Off
+          </button>
+        </div>
+
+        <!-- HUD Health Pools & Countdown Timer -->
+        <div id="health-bars-panel" class="pointer-events-auto flex flex-col gap-2 bg-dark-panel/90 border border-dark-border p-3 brutalist-border-white w-72 font-mono">
+          <!-- Player Health -->
+          <div class="flex flex-col gap-1">
+            <div class="flex justify-between text-[10px] font-bold text-white uppercase tracking-wider">
+              <span>Caster (Player)</span>
+              <span id="player-hp-text" class="text-neon-blue font-bold">10 / 10 HP</span>
+            </div>
+            <div class="flex h-4 w-full border border-white bg-zinc-900 overflow-hidden" id="player-hp-bar">
+              <!-- Dynamically populated hp-segments -->
+            </div>
+            <!-- Player Status Indicators -->
+            <div class="flex flex-wrap gap-1 mt-1 text-[9px] uppercase" id="player-statuses">
+              <!-- status pills -->
+            </div>
+          </div>
+
+          <!-- Opponent Health -->
+          <div class="flex flex-col gap-1">
+            <div class="flex justify-between text-[10px] font-bold text-white uppercase tracking-wider">
+              <span>Mannequin (Opponent)</span>
+              <span id="opponent-hp-text" class="text-neon-red font-bold">10 / 10 HP</span>
+            </div>
+            <div class="flex h-4 w-full border border-white bg-zinc-900 overflow-hidden animate-pulse" id="opponent-hp-bar">
+              <!-- Dynamically populated hp-segments -->
+            </div>
+            <!-- Opponent Status Indicators -->
+            <div class="flex flex-wrap gap-1 mt-1 text-[9px] uppercase" id="opponent-statuses">
+              <!-- status pills -->
+            </div>
+          </div>
+
+          <!-- Integrated Countdown Timer -->
+          <div class="flex items-center justify-between border-t border-zinc-800 pt-2 font-mono">
+            <span class="text-[9px] text-zinc-500 uppercase font-bold">ROUND TIME:</span>
+            <span id="round-timer-hud" class="text-sm font-bold text-neon-blue glow-text-cyan tracking-wider">45.0s</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Log Display -->
+      <div class="flex justify-start items-center w-full px-4 my-auto">
+        <!-- Terminal Combat Log -->
+        <div id="logs-panel" class="pointer-events-auto flex flex-col w-80 h-60 bg-dark-panel/90 border border-dark-border p-3 brutalist-border-white font-mono text-[9.5px]">
+          <div class="text-white font-bold uppercase mb-1.5 border-b border-zinc-700 pb-1 tracking-widest flex justify-between text-[9px]">
+            <span>CONSOLE LOG</span>
+                  <span class="animate-pulse text-neon-blue">● REC_</span>
+          </div>
+          <div id="log-console" class="flex-grow overflow-y-auto custom-scrollbar flex flex-col gap-1 text-zinc-400 pr-1 select-text">
+            <!-- Dynamic logs -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Panel (Unified Condensed Command Deck Dashboard) -->
+      <div class="flex justify-start items-end w-full mt-auto">
+        <!-- Unified Command Deck Dashboard -->
+        <div id="unified-dashboard-panel" class="pointer-events-auto flex flex-col bg-dark-panel/90 border border-white p-2 brutalist-border-white w-[500px] font-mono transition-all duration-300">
+          
+          <!-- Top Row: Combo Slots & Delete Action -->
+          <div class="flex gap-4 items-center justify-between mb-1.5">
+            <!-- Combo Slots Indicator -->
+            <div class="flex gap-2 items-center">
+              <div class="text-[10px] text-zinc-400 uppercase font-mono mr-1">Active Palm Combos:</div>
+              <div class="w-20 h-9 border border-white bg-zinc-950 flex flex-col justify-center items-center rounded-sm" id="spell-slot-0">
+                <span class="text-[7px] text-zinc-600 uppercase font-mono leading-none">Slot 1</span>
+                <span class="text-[10px] font-bold text-zinc-500" id="slot-0-text">-EMPTY-</span>
+              </div>
+              <div class="w-20 h-9 border border-white bg-zinc-950 flex flex-col justify-center items-center rounded-sm" id="spell-slot-1">
+                <span class="text-[7px] text-zinc-600 uppercase font-mono leading-none">Slot 2</span>
+                <span class="text-[10px] font-bold text-zinc-500" id="slot-1-text">-EMPTY-</span>
+              </div>
+              <div class="w-20 h-9 border border-white bg-zinc-950 flex flex-col justify-center items-center rounded-sm" id="spell-slot-2">
+                <span class="text-[7px] text-zinc-600 uppercase font-mono leading-none">Slot 3</span>
+                <span class="text-[10px] font-bold text-zinc-500" id="slot-2-text">-EMPTY-</span>
+              </div>
+            </div>
+
+            <!-- POP Button next to combo slots all the way to the right -->
+            <button id="key-btn-backspace" class="px-2.5 py-0.5 bg-red-950/40 border border-white/50 text-[9px] font-bold text-center uppercase hover:bg-red-900/60 active:bg-red-950 text-red-400 rounded-sm flex flex-col justify-center items-center transition-colors">
+              <span>[ DEL ] POP</span>
+              <span class="text-[6px] text-red-600 leading-none mt-0.5 font-sans">CLEAR SLOTS</span>
+            </button>
+          </div>
+
+          <!-- Middle Row: Grimoire Elements Dropdowns & Queue Buttons -->
+          <div class="flex flex-col mb-1.5">
+            <div class="text-[10px] uppercase text-zinc-400 mb-1 flex justify-between">
+              <span>Grimoire Elements (Adaptable)</span>
+              <span id="loadout-cooldown-text" class="text-neon-green font-bold">READY</span>
+            </div>
+            
+            <div class="grid grid-cols-4 gap-2">
+              <!-- Element Slot 1 -->
+              <div class="flex flex-col border border-white bg-zinc-950 p-1 rounded-sm">
+                <div class="flex justify-between items-center">
+                  <span class="text-[8px] text-zinc-400 uppercase leading-none">Slot 1</span>
+                  <span class="text-[8px] text-zinc-500 font-bold">[1]</span>
+                </div>
+                <select id="loadout-select-0" class="bg-zinc-900 border-0 text-[10px] text-white p-0.5 mt-0.5 focus:ring-0 focus:outline-none cursor-pointer">
+                  <option value="PULSE">PULSE</option>
+                  <option value="CHROME">CHROME</option>
+                  <option value="MIRROR">MIRROR</option>
+                  <option value="BLOOD">BLOOD</option>
+                  <option value="DECAY">DECAY</option>
+                  <option value="CLOUD">CLOUD</option>
+                  <option value="VOID">VOID</option>
+                  <option value="LOTUS">LOTUS</option>
+                  <option value="ECHO">ECHO</option>
+                </select>
+                <button id="key-btn-1" class="mt-1 py-0.5 bg-zinc-900 border border-white text-[9px] font-bold text-center uppercase hover:bg-zinc-800 hover:border-white/50 active:bg-zinc-950 rounded-sm flex flex-col justify-center items-center">
+                  <span>KEY 1</span>
+                  <span id="key-label-1" class="text-[7px] text-zinc-500 leading-none mt-0.5">-</span>
+                </button>
+              </div>
+              
+              <!-- Element Slot 2 -->
+              <div class="flex flex-col border border-white bg-zinc-950 p-1 rounded-sm">
+                <div class="flex justify-between items-center">
+                  <span class="text-[8px] text-zinc-400 uppercase leading-none">Slot 2</span>
+                  <span class="text-[8px] text-zinc-500 font-bold">[2]</span>
+                </div>
+                <select id="loadout-select-1" class="bg-zinc-900 border-0 text-[10px] text-white p-0.5 mt-0.5 focus:ring-0 focus:outline-none cursor-pointer">
+                  <option value="PULSE">PULSE</option>
+                  <option value="CHROME">CHROME</option>
+                  <option value="MIRROR">MIRROR</option>
+                  <option value="BLOOD">BLOOD</option>
+                  <option value="DECAY">DECAY</option>
+                  <option value="CLOUD">CLOUD</option>
+                  <option value="VOID">VOID</option>
+                  <option value="LOTUS">LOTUS</option>
+                  <option value="ECHO">ECHO</option>
+                </select>
+                <button id="key-btn-2" class="mt-1 py-0.5 bg-zinc-900 border border-white text-[9px] font-bold text-center uppercase hover:bg-zinc-800 hover:border-white/50 active:bg-zinc-950 rounded-sm flex flex-col justify-center items-center">
+                  <span>KEY 2</span>
+                  <span id="key-label-2" class="text-[7px] text-zinc-500 leading-none mt-0.5">-</span>
+                </button>
+              </div>
+              
+              <!-- Element Slot 3 -->
+              <div class="flex flex-col border border-white bg-zinc-950 p-1 rounded-sm">
+                <div class="flex justify-between items-center">
+                  <span class="text-[8px] text-zinc-400 uppercase leading-none">Slot 3</span>
+                  <span class="text-[8px] text-zinc-500 font-bold">[3]</span>
+                </div>
+                <select id="loadout-select-2" class="bg-zinc-900 border-0 text-[10px] text-white p-0.5 mt-0.5 focus:ring-0 focus:outline-none cursor-pointer">
+                  <option value="PULSE">PULSE</option>
+                  <option value="CHROME">CHROME</option>
+                  <option value="MIRROR">MIRROR</option>
+                  <option value="BLOOD">BLOOD</option>
+                  <option value="DECAY">DECAY</option>
+                  <option value="CLOUD">CLOUD</option>
+                  <option value="VOID">VOID</option>
+                  <option value="LOTUS">LOTUS</option>
+                  <option value="ECHO">ECHO</option>
+                </select>
+                <button id="key-btn-3" class="mt-1 py-0.5 bg-zinc-900 border border-white text-[9px] font-bold text-center uppercase hover:bg-zinc-800 hover:border-white/50 active:bg-zinc-950 rounded-sm flex flex-col justify-center items-center">
+                  <span>KEY 3</span>
+                  <span id="key-label-3" class="text-[7px] text-zinc-500 leading-none mt-0.5">-</span>
+                </button>
+              </div>
+              
+              <!-- Element Slot 4 -->
+              <div class="flex flex-col border border-white bg-zinc-950 p-1 rounded-sm">
+                <div class="flex justify-between items-center">
+                  <span class="text-[8px] text-zinc-400 uppercase leading-none">Slot 4</span>
+                  <span class="text-[8px] text-zinc-500 font-bold">[4]</span>
+                </div>
+                <select id="loadout-select-3" class="bg-zinc-900 border-0 text-[10px] text-white p-0.5 mt-0.5 focus:ring-0 focus:outline-none cursor-pointer">
+                  <option value="PULSE">PULSE</option>
+                  <option value="CHROME">CHROME</option>
+                  <option value="MIRROR">MIRROR</option>
+                  <option value="BLOOD">BLOOD</option>
+                  <option value="DECAY">DECAY</option>
+                  <option value="CLOUD">CLOUD</option>
+                  <option value="VOID">VOID</option>
+                  <option value="LOTUS">LOTUS</option>
+                  <option value="ECHO">ECHO</option>
+                </select>
+                <button id="key-btn-4" class="mt-1 py-0.5 bg-zinc-900 border border-white text-[9px] font-bold text-center uppercase hover:bg-zinc-800 hover:border-white/50 active:bg-zinc-950 rounded-sm flex flex-col justify-center items-center">
+                  <span>KEY 4</span>
+                  <span id="key-label-4" class="text-[7px] text-zinc-500 leading-none mt-0.5">-</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Row: Action Controls -->
+          <div class="flex gap-2 justify-between">
+            <!-- PROJECT COMBO Button -->
+            <button id="key-btn-space" class="flex-1 py-1 bg-zinc-100 text-zinc-900 font-bold text-[10px] text-center uppercase hover:bg-white active:bg-zinc-300 rounded-sm flex flex-col justify-center items-center transition-colors border border-white">
+              <span>[ SPACE ] PROJECT COMBO</span>
+              <span class="text-[8px] text-zinc-600 leading-none mt-0.5">LAUNCH OUTWARD</span>
+            </button>
+            
+            <!-- SELF-CAST Button -->
+            <button id="key-btn-enter" class="w-[180px] py-1 bg-purple-950/40 border border-white text-[10px] font-bold text-center uppercase hover:bg-purple-900/60 active:bg-purple-950 text-purple-400 rounded-sm flex flex-col justify-center items-center transition-colors">
+              <span>[ ENTER ] SELF-CAST</span>
+              <span class="text-[8px] text-purple-600 leading-none mt-0.5">CAST INWARD</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    <!-- Main JS Modules Script Entry -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
