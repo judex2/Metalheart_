@@ -1,4 +1,4 @@
-# 🩸 METALHEART
+# METALHEART_
 
 An atmospheric, tech-brutalist 1v1 tactical grid dueling game featuring a host-authoritative P2P architecture, fluid spatial mechanics, and a haunting 10-tier single-player roguelike narrative campaign.
 
@@ -8,7 +8,7 @@ An atmospheric, tech-brutalist 1v1 tactical grid dueling game featuring a host-a
 
 ---
 
-## 👁️ Visual Art Direction
+## Visual Art Direction
 
 `METALHEART` leverages a deliberate **premium editorial digital collage** and **retro PS1 low-poly aesthetic**. All elements, arenas, and characters are built using flat-shaded, unshaded low-poly primitive meshes (`.obj`) to ensure fast client-side rendering, sharp network replication, and absolute readability under extreme combat conditions.
 
@@ -17,7 +17,7 @@ An atmospheric, tech-brutalist 1v1 tactical grid dueling game featuring a host-a
 
 ---
 
-## 🕹️ Core Systems Architecture
+## Core Systems Architecture
 
 ### 1. The 4-Slot Combo Construction Grid
 Combat is resolved through a strict, high-stakes tactical queue. Players construct spells by combining core elements inside an active grid matrix. The host-authoritative simulation engine calculates trajectories, barriers, and status overrides deterministically across both peers.
